@@ -1,1 +1,1 @@
-# eventCompass
+# Event Compass
