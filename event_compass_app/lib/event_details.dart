@@ -13,6 +13,7 @@ class EventDetailsPage extends StatefulWidget {
 class _EventDetailsPageState extends State<EventDetailsPage> {
   List<String> comments = [];
   TextEditingController commentController = TextEditingController();
+  bool isReserved = false;
 
   @override
   Widget build(BuildContext context) {
@@ -58,10 +59,8 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
             ),
             SizedBox(height: 20.0),
             ElevatedButton(
-              onPressed: () {
-                _showCommentDialog(context);
-              },
-              child: Text('Comment'),
+              onPressed: isReserved ? null : _reserveEvent,
+              child: Text(isReserved ? 'Reserved' : 'Reserve'),
             ),
             SizedBox(height: 10.0),
             Divider(), // Add a divider to separate comments
@@ -143,7 +142,29 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
             );
           },
         ),
+        SizedBox(height: 10.0),
+        Row(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                _showCommentDialog(context);
+              },
+              child: Text('Comment'),
+            ),
+            SizedBox(width: 10.0),
+            ElevatedButton(
+              onPressed: isReserved ? null : _reserveEvent,
+              child: Text(isReserved ? 'Reserved' : 'Reserve'),
+            ),
+          ],
+        ),
       ],
     );
+  }
+
+  void _reserveEvent() {
+    setState(() {
+      isReserved = true;
+    });
   }
 }
