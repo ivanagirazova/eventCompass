@@ -30,7 +30,7 @@ class _EventHomePageState extends State<EventHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Event List'),
+        title: Text('Event Compass'),
       ),
       body: ListView.builder(
         itemCount: events.length,
