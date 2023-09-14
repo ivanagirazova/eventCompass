@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'event_details.dart';
 
 void main() {
   runApp(EventApp());
@@ -71,6 +72,12 @@ class _EventHomePageState extends State<EventHomePage> {
                     ),
                   ),
                 ],
+              ),
+              trailing: ElevatedButton(
+                onPressed: () {
+                  _showEventDetails(context, events[index]);
+                },
+                child: Text('Details'),
               ),
             ),
           );
@@ -201,6 +208,14 @@ class _EventHomePageState extends State<EventHomePage> {
         ),
       );
     });
+  }
+
+  void _showEventDetails(BuildContext context, Event event) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => EventDetailsPage(event: event),
+      ),
+    );
   }
 }
 
