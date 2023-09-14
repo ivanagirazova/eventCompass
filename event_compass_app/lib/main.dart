@@ -9,7 +9,7 @@ class EventApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Event List',
+      title: 'Event Compass',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
