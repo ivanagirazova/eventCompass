@@ -58,11 +58,6 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
               child: Text('Back to Event List'),
             ),
             SizedBox(height: 20.0),
-            ElevatedButton(
-              onPressed: isReserved ? null : _reserveEvent,
-              child: Text(isReserved ? 'Reserved' : 'Reserve'),
-            ),
-            SizedBox(height: 10.0),
             Divider(), // Add a divider to separate comments
             _buildCommentsList(),
           ],
